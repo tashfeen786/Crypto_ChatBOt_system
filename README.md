@@ -168,14 +168,10 @@ vercel --prod
 4. Push: `git push origin feature/NewFeature`
 5. Open a Pull Request
 
-## 📝 License
-
-MIT License - see [LICENSE](LICENSE) file
-
 ## 👨‍💻 Author
 
-**Asif**  
-GitHub: [@Tashfeen Aziz]((https://github.com/tashfeen786) 
+**Tashfeen Aziz**  
+GitHub: https://github.com/tashfeen786
 Email: tashfeen247@gmail.com
 ---
 
