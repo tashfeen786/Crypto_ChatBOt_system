@@ -1,31 +1,36 @@
 # 🤖 CryptoChat — AI-Powered Crypto Investment Platform
 
-![Python](https://img.shields.io/badge/Python-3.13+-blue?style=flat&logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green?style=flat&logo=fastapi)
-![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat&logo=next.js)
-![LangChain](https://img.shields.io/badge/LangChain-RAG-purple?style=flat)
-![Groq](https://img.shields.io/badge/Groq-LLaMA3-orange?style=flat)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=flat&logo=postgresql)
-![HuggingFace](https://img.shields.io/badge/HuggingFace-Embeddings-yellow?style=flat)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+![Python](https://img.shields.io/badge/Python-3.13-blue) ![FastAPI](https://img.shields.io/badge/FastAPI-latest-green) ![Next.js](https://img.shields.io/badge/Next.js-14-black) ![LangChain](https://img.shields.io/badge/LangChain-latest-purple) ![Groq](https://img.shields.io/badge/Groq-LLaMA3-orange) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14-blue) ![Pinecone](https://img.shields.io/badge/Pinecone-VectorDB-green)
 
-> 🚀 A production-grade **Generative AI + FinTech** platform that combines
-> RAG-based LLM reasoning with real-time market data to deliver
-> personalized cryptocurrency investment guidance.
+> A full-stack AI investment platform that combines RAG-based LLM reasoning, real-time Binance market data, and trained ML prediction models to deliver personalized cryptocurrency investment guidance.
 
 ---
 
 ## 🎯 Problem Statement
 
-Crypto markets are complex, volatile, and overwhelming for most investors:
+Retail crypto investors make emotional, uninformed decisions:
 
 - ❌ No personalized guidance based on individual risk tolerance
-- ❌ Real-time data and AI reasoning are siloed — not combined
-- ❌ Most tools either show data OR give advice — not both simultaneously
+- ❌ Real-time market data and AI reasoning are siloed — not combined
+- ❌ No accessible tool that shows data, gives advice, AND predicts market direction simultaneously
 
-**CryptoChat solves this** by fusing live market data from Binance with
-RAG-powered LLM reasoning to give users personalized, context-aware
-investment recommendations in plain language.
+**CryptoChat solves this** by fusing live Binance data with RAG-powered LLM reasoning and trained ML models to give users personalized, context-aware investment recommendations in plain language.
+
+---
+
+## 📸 Screenshots
+
+### AI Investment Chatbot — Live Market Analysis
+![Chat Interface](screenshots/chat.png)
+*RAG chatbot analyzing SOL in real-time — current price, 24h range, risk-based investment recommendation*
+
+### ML Market Prediction Dashboard
+![ML Predictions](screenshots/predictions.png)
+*3 trained ML models predicting ATR Regime, Trend Label, and Trend Inversion using live Birdeye data*
+
+### Trading Dashboard — 681+ Coins
+![Trading Dashboard](screenshots/trading.png)
+*Live prices for 681+ cryptocurrencies via Binance API with buy/sell execution and portfolio tracking*
 
 ---
 
@@ -33,14 +38,15 @@ investment recommendations in plain language.
 
 | Feature | Description |
 |---------|-------------|
-| 🧠 **RAG Chatbot** | LangChain + Groq LLaMA3 for intelligent investment advice |
-| 📊 **Live Prices** | Real-time data for 644+ cryptocurrencies via Binance API |
-| 🔍 **Semantic Search** | HuggingFace embeddings for context-aware retrieval |
-| 💼 **Portfolio Tracker** | Real-time P&L tracking and holdings management |
-| ⚡ **Risk Engine** | Personalized recommendations based on risk tolerance |
-| 📰 **Market News** | Latest crypto news with sentiment categorization |
-| 🔔 **Price Alerts** | Custom notifications for tracked coins |
-| 🔐 **Auth System** | Secure user authentication and session management |
+| 🧠 RAG Chatbot | LangChain + Groq LLaMA3 — investment advice with live market context |
+| 📊 Live Prices | Real-time data for 681+ cryptocurrencies via Binance API |
+| 🔍 Vector Search | Pinecone vector database for semantic context retrieval |
+| 🤖 ML Predictions | 3 trained models: ATR Regime, Trend Label, Trend Inversion |
+| 💼 Portfolio Tracker | Real-time P&L tracking and holdings management |
+| ⚡ Risk Engine | Personalized recommendations based on user risk tolerance (1-10) |
+| 📰 Market News | Latest crypto news with sentiment categorization |
+| 🔔 Price Alerts | Custom notifications for tracked coins |
+| 🔐 Auth System | Secure user authentication and session management |
 
 ---
 
@@ -52,7 +58,7 @@ User Query (e.g. "I have $500, low risk — what should I buy?")
 HuggingFace Embedding Model
 (sentence-transformers — converts query to vector)
         ↓
-PostgreSQL Vector Search
+Pinecone Vector Search
 (retrieves relevant crypto knowledge context)
         ↓
 Binance API
@@ -69,6 +75,20 @@ Personalized Investment Recommendation
 
 ---
 
+## 🤖 ML Prediction Models
+
+Three models trained on real Birdeye SOL token data:
+
+| Model | Task | Input Features |
+|-------|------|----------------|
+| ATR Regime Classifier | Volatility detection (Low/Medium/High) | Price, Volume, ATR indicators |
+| Trend Label Classifier | Market direction (Bullish/Bearish/Neutral) | OHLCV + momentum features |
+| Trend Inversion Detector | Reversal risk (Likely/Unlikely) | Price action patterns |
+
+Live data is fetched from Birdeye API → features engineered → models predict in real-time.
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Backend
@@ -76,8 +96,9 @@ Personalized Investment Recommendation
 |-------|-----------|
 | 🧠 LLM Inference | Groq API (LLaMA 3) |
 | 🔗 RAG Framework | LangChain |
+| 🔍 Vector Database | Pinecone |
 | 🔍 Embeddings | HuggingFace (sentence-transformers) |
-| 📈 Live Market Data | Binance API |
+| 📈 Market Data | Binance API + Birdeye API |
 | ⚙️ API Framework | FastAPI + Python 3.13 |
 | 🗄️ Database | PostgreSQL + SQLAlchemy |
 | 🛡️ Validation | Pydantic v2 |
@@ -87,7 +108,6 @@ Personalized Investment Recommendation
 |-------|-----------|
 | 🎨 Framework | Next.js 14 + React 18 |
 | 💅 Styling | Tailwind CSS |
-| 🔌 API Client | Custom REST client |
 
 ---
 
@@ -100,10 +120,10 @@ Personalized Investment Recommendation
 🤖 CryptoChat: "Based on your $500 budget and low-risk profile,
                here's my analysis using current market data:
 
-               ✅ Bitcoin (BTC) — $XX,XXX | Market dominance 52%
+               ✅ Bitcoin (BTC) — $62,945 | Market dominance 52%
                Most stable option. Recommended allocation: $300
 
-               ✅ Ethereum (ETH) — $X,XXX | Strong fundamentals  
+               ✅ Ethereum (ETH) — $1,772 | Strong fundamentals  
                Second most stable. Recommended allocation: $150
 
                ⚠️ Avoid high-volatility altcoins with your risk level.
@@ -130,6 +150,7 @@ Crypto_ChatBOt_system/
 │       │
 │       ├── services/
 │       │   ├── binance.py            # Live price fetching
+│       │   ├── birdeye.py            # ML model data source
 │       │   ├── risk_engine.py        # Risk analysis logic
 │       │   ├── trading.py            # Buy/sell execution
 │       │   ├── news.py               # Market news service
@@ -141,6 +162,7 @@ Crypto_ChatBOt_system/
 │           ├── coins.py              # Coin data endpoints
 │           ├── trading.py            # Trading endpoints
 │           ├── portfolio.py          # Portfolio endpoints
+│           ├── predictions.py        # ML prediction endpoints
 │           ├── news.py               # News endpoints
 │           └── alerts.py             # Alert endpoints
 │
@@ -150,7 +172,7 @@ Crypto_ChatBOt_system/
     │   ├── login/page.js             # Authentication
     │   ├── trading/page.js           # Trading interface
     │   ├── portfolio/page.js         # Portfolio tracker
-    │   ├── charts/page.js            # Price charts
+    │   ├── predictions/page.js       # ML predictions
     │   ├── alerts/page.js            # Price alerts
     │   └── news/page.js              # Market news
     │
@@ -170,9 +192,11 @@ Crypto_ChatBOt_system/
 - Python 3.13+
 - Node.js 18+
 - PostgreSQL 14+
+- Pinecone account (free tier)
+- Groq API key (free tier)
+- Binance API key
 
 ### Backend Setup
-
 ```bash
 cd backend
 python -m venv venv
@@ -181,12 +205,13 @@ pip install -r requirements.txt
 ```
 
 Create `.env` file:
-
 ```env
 DATABASE_URL=postgresql://user:password@localhost:5432/crypto_advisor
 SECRET_KEY=your-secret-key
 GROQ_API_KEY=your-groq-api-key
 BINANCE_API_KEY=your-binance-api-key
+PINECONE_API_KEY=your-pinecone-api-key
+BIRDEYE_API_KEY=your-birdeye-api-key
 HUGGINGFACE_MODEL=sentence-transformers/all-MiniLM-L6-v2
 ```
 
@@ -196,14 +221,12 @@ uvicorn main:app --reload  # Start server
 ```
 
 ### Frontend Setup
-
 ```bash
 cd frontend
 npm install
 ```
 
 Create `.env.local`:
-
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
@@ -220,35 +243,16 @@ Visit `http://localhost:3000` 🎉
 
 ```
 POST   /api/chat/               # RAG chatbot — AI investment advice
-GET    /api/coins/prices        # Live prices (644+ coins via Binance)
+GET    /api/coins/prices        # Live prices (681+ coins via Binance)
 POST   /api/trading/buy         # Execute buy order
 GET    /api/portfolio/{userId}  # Get user portfolio & P&L
 POST   /api/auth/login          # User authentication
 GET    /api/news/               # Latest crypto news
 POST   /api/alerts/             # Set price alert
+GET    /api/predictions/{token} # ML market predictions
 ```
 
 📖 Full interactive API docs: `http://localhost:8000/docs`
-
----
-
-## 🚢 Deployment
-
-**Frontend → Vercel:**
-```bash
-vercel --prod
-```
-
-**Backend → Railway:**
-- Connect GitHub repo
-- Add environment variables
-- Auto-deploys on push ✅
-
----
-
-## 📸 Screenshots
-
-> 🔜 Screenshots coming soon
 
 ---
 
@@ -256,12 +260,12 @@ vercel --prod
 
 **Tashfeen Aziz** — AI/ML Engineer & Python Developer
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com/in/tashfeen-aziz-b51361292)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?logo=github)](https://github.com/tashfeen786)
-[![Email](https://img.shields.io/badge/Email-Contact-red?logo=gmail)](mailto:tashfeen247@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/tashfeen-aziz)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/tashfeen786)
+[![Email](https://img.shields.io/badge/Email-Contact-red)](mailto:tashfeen247@gmail.com)
 
 ---
 
-⭐ **If you found this project helpful, please give it a star!**
+⭐ If you found this project helpful, please give it a star!
 
-*Built with ❤️ — Combining GenAI + FinTech for smarter investing*
+*Built combining Generative AI + FinTech for smarter investing*
